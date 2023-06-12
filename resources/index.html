@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" id="viewport" content="viewport-fit=cover,user-scalable=no,initial-scale=.5">
         <style>
             @font-face {
                 font-family: Azo Sans;
@@ -23,11 +24,18 @@
                 src: url("AzoSans-Bold.ttf");
             }
             body{
+                user-select: none;
+                cursor: default;
+                -webkit-user-select: none;
                 margin-top: 75px;
                 font-family: Azo Sans;
-                font-size: 25px;
+                font-size: 17px;
                 background-color: white;
                 text-align: center;
+                width: 3250px;
+                overflow-x: visible;
+                overflow-y:hidden;
+                margin-top: 175px
             }
             img{
                 display: inline-table;
@@ -39,10 +47,14 @@
             }
             table{
                 border-spacing: 0px;
+                width: 3000px;
+                margin-left: 125px;
             }
             h1{
-                margin-top: 10px;
-                margin-bottom: 25px;
+                background-color: white;
+                position: fixed;
+                top: 10px;
+                width: 100vw;
             }
             h2{
                 text-align: left;
@@ -52,28 +64,59 @@
                 padding-left: 40px;
             }
             td{
-                text-align: left;
+                text-align: center;
                 vertical-align: top;
                 border-top: 1px solid grey;
                 border-left: 1px solid grey;
                 box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
                 margin: 0px;
                 display: table-cell;
-                width: 250px;
-                height: 150px;
+                /* height: 150px; */
                 overflow: hidden;
-                padding: 0px;
+                padding: 10px;
             }
-             
+            td>a{
+                margin-top: 4px;
+                margin-bottom: 4px;
+                display: block;
+                background-color: rgb(200, 200, 200);
+                border-radius: 25px;
+                padding: 5px;
+                text-decoration: none;
+                color: black;
+                transition: background-color .2s cubic-bezier(0.445, 0.05, 0.55, 0.95), color .2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+            }
+            tr:nth-child(1)>td>a:nth-of-type(1){
+                background-color: aquamarine;
+            }
+            tr:nth-child(1)>td>a:nth-of-type(2){
+                background-color:khaki;
+            }
+            tr:nth-child(1)>td>a:nth-of-type(3){
+                background-color:cornflowerblue;
+            }
+            tr:nth-child(1)>td>a:nth-of-type(4){
+                background-color:tomato;
+            }
+            tr:nth-child(2)>td>a:nth-of-type(1){
+                background-color:lightskyblue;
+            }
+            tr:nth-child(2)>td>a:nth-of-type(2){
+                background-color:thistle;
+            }
+            tr:nth-child(2)>td>a:nth-of-type(3){
+                background-color:darkturquoise;
+            }
+            tr:nth-child(3)>td>a:nth-of-type(1){
+                background-color:tomato;
+            }
+            td>a:hover{
+                background-color: black;
+                color: white;
+            }
             thead>tr>td{
                 padding: 10px;
                 height: 25px;
-            }
-            tbody>tr>td>.Date{
-                padding-left: 5px;
-                padding-top: 5px;
-                font-weight: bold;
-                color: grey;
             }
             thead>tr>td:first-child{
                 border-top-left-radius: 5px;
@@ -93,181 +136,64 @@
             tr:last-child td{
                 border-bottom: 1px solid grey;
             }
-            .Camp{
-                text-decoration: none;
-                color: black;
-                font-size: 18px;
-                font-weight: 700;
-                width: 100%;
-                display: block;
-                background-color: rgb(0, 255, 85);
-                padding-top: 4px;
-                padding-bottom: 4px;
-                padding-left: 10px;
-                height: 25px;
-                text-overflow: clip;
-                overflow: hidden;
-                line-height: 35px;
-                text-align: left;
-                margin-top: 4px;
-                margin-bottom: 4px;
+            #LeftCover{
+                width: 150px;
+                position: fixed;
+                height: 100vh;
+                left: 0px;
+                top: 0px;
+                background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); 
             }
-            .Space{
-                display: block;
-                margin-top: 4px;
-                margin-bottom: 4px;
-                height: 33px;
+            #RightCover{
+                width: 150px;
+                position: fixed;
+                height: 100vh;
+                right: 0px;
+                top: 0px;
+                background: linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); 
             }
-            .Camp.Middle{
-                width: 80%;
-                border-radius: 50px;
-                margin-left: calc(10% - 7px);
-            }
-            .Camp.First{
-                width: 75%;
-                margin-left: 25%;
-                border-top-left-radius: 25px;
-                border-bottom-left-radius: 25px;
-            }
-            .Camp.Last{
-                width: 75%;
-                border-top-right-radius: 25px;
-                border-bottom-right-radius: 25px;
+            @media (max-height: 750px){
+                body{
+                    margin-top: 0px;
+                }
+                h1,#LeftCover,#RightCover{
+                    display: none;
+                }
             }
         </style>
     </head>
     <body>
-        <img src="./CodeNinjasLogoHorizontal.svg">
         <h1>
+            <img src="./CodeNinjasLogoHorizontal.svg">
+            <br>
             Our Summer Camp Selection!
         </h1>
-
-        <h2>
-            
-        </h2>
-        <div id="June">
-            <h2>
-                June
-                <!-- <div id="AllDayCampTag">
-                    All Day Camps (9:00 AM - 4:00 PM)
-                </div>
-                <div id="MorningCampTag">
-                    Mornings (9:00 AM - 12:00 PM)
-                </div>
-                <div id="AfternoonCampTag">
-                    Afternoon Camps (1:00 PM - 4:00 PM)
-                </div> -->
-            </h2>
-            <table>
-                <thead>
-                    <td class="CHead">
-                        Sunday
+        <table>
+            <thead>
+                <tr>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Morning<br>(9 AM - 12 PM)
                     </td>
-                    <td class="CHead">
-                        Monday
+                </tr>
+                <tr>
+                    <td>
+                        Afternoon<br>(12 PM - 4 PM)
                     </td>
-                    <td class="CHead">
-                        Tuesday
+                </tr>
+                <tr>
+                    <td>
+                        All Day<br>(9 AM - 4 PM)
                     </td>
-                    <td class="CHead">
-                        Wednesday
-                    </td>
-                    <td class="CHead">
-                        Thursday
-                    </td>
-                    <td class="CHead">
-                        Friday
-                    </td>
-                    <td class="CHead">
-                        Saturday
-                    </td>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-        <div id="July">
-            <h2>
-                July
-                <!-- <div id="AllDayCampTag">
-                    All Day Camps (9:00 AM - 4:00 PM)
-                </div>
-                <div id="MorningCampTag">
-                    Mornings (9:00 AM - 12:00 PM)
-                </div>
-                <div id="AfternoonCampTag">
-                    Afternoon Camps (1:00 PM - 4:00 PM)
-                </div> -->
-            </h2>
-            <table>
-                <thead>
-                    <td class="CHead">
-                        Sunday
-                    </td>
-                    <td class="CHead">
-                        Monday
-                    </td>
-                    <td class="CHead">
-                        Tuesday
-                    </td>
-                    <td class="CHead">
-                        Wednesday
-                    </td>
-                    <td class="CHead">
-                        Thursday
-                    </td>
-                    <td class="CHead">
-                        Friday
-                    </td>
-                    <td class="CHead">
-                        Saturday
-                    </td>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-        <div id="August">
-            <h2>
-                August
-                <!-- <div id="AllDayCampTag">
-                    All Day Camps (9:00 AM - 4:00 PM)
-                </div>
-                <div id="MorningCampTag">
-                    Mornings (9:00 AM - 12:00 PM)
-                </div>
-                <div id="AfternoonCampTag">
-                    Afternoon Camps (1:00 PM - 4:00 PM)
-                </div> -->
-            </h2>
-            <table>
-                <thead>
-                    <td class="CHead">
-                        Sunday
-                    </td>
-                    <td class="CHead">
-                        Monday
-                    </td>
-                    <td class="CHead">
-                        Tuesday
-                    </td>
-                    <td class="CHead">
-                        Wednesday
-                    </td>
-                    <td class="CHead">
-                        Thursday
-                    </td>
-                    <td class="CHead">
-                        Friday
-                    </td>
-                    <td class="CHead">
-                        Saturday
-                    </td>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+                </tr>
+            </tbody>
+        </table>
+        <div id="LeftCover"></div>
+        <div id="RightCover"></div>
     </body>
     <script src="./index.js" type="module"></script>
 </html>

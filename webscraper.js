@@ -18,6 +18,8 @@
     (async()=>{
         await wait(200);
 
+        let mainIndex = 0;
+
         for (let i = 0;i<numberOfMainCards;i++){
 
             
@@ -28,11 +30,16 @@
             mainCard.querySelector(".card-content").click();
             console.log(mainCard.querySelector(".card-content"));
 
+            let ageRequirements = mainCard.querySelector(`#subtitleTitleNameListItem_${mainIndex}`).innerText;
+
+            ageRequirements = ageRequirements.replace(/.+ ages /, "");
+
             await wait(1500);
 
             let campCards = document.querySelector("#pageinlay > detail-view > child-listing > div").getElementsByClassName("mc_card_listing mc_col_33_cardlisting ng-scope");
 
             let index = 0;
+            mainIndex += 1;
 
             for (let campCard of campCards){
 
@@ -56,7 +63,8 @@
                     CampName: campName,
                     CampStartTime: campStartTime.match(/^Start:.(.+)/)[1],
                     CampEndTime: campEndTime.match(/^End:.(.+)/)[1],
-                    CampLink: link
+                    CampLink: link,
+                    RecommendedAge: ageRequirements
                 });
 
                 document.querySelector("#detailModal > div.mc-child-description > parent-detail > div > div.pagelay > div > div:nth-child(1) > div.mc-w-10.mc-share-icon > social-sharing > div.mc-component.ng-scope > div > div > div.mc-modal-header-socialsharing > button > img").click();
